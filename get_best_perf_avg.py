@@ -52,14 +52,6 @@ def get_role_parses(character_json, player_role, metric):
         role = classesDict[player_class][spec]
         if player_role == role:
             parses.append(parse)
-            # print(
-            #     "{encounterName}\n\t{spec}\n\t{parse}\n\t{role}".format(
-            #         encounterName=parse["encounterName"],
-            #         spec=spec,
-            #         parse=parse["percentile"],
-            #         role=role,
-            #     )
-            # )
     return parses
 
 
@@ -150,9 +142,8 @@ print(round(best_average, 1))
 
 ################################################################################
 
-# print(role_parses[0])
 
-##### only used to write to the file
+##### only used to write to the file for manual parsing
 character_json = json.dumps(info, indent=2)
 
 with open("character.json", "w") as out:

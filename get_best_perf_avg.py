@@ -87,10 +87,14 @@ def get_best_perf_avg(parses):
     # pp.pprint(player_parses)
 
     total_bosses = len(player_parses)
+
+    if total_bosses == 0:
+        # print("There are no bosses")
+        return 0
+
     total = 0
     for boss_name in player_parses:
         total += player_parses[boss_name]
-
     return total / total_bosses
 
 
@@ -103,8 +107,8 @@ def get_best_perf_avg(parses):
 with open("api_key", "r") as file:
     api_key = file.read().replace("\n", "")
 
-characterName = "Spicegold"
-serverName = "Illidan"
+characterName = "Demondep"
+serverName = "Area-52"
 serverRegion = "US"
 
 ###################
@@ -112,7 +116,7 @@ serverRegion = "US"
 # heal = hps
 # otherwise, dps
 ###################
-role = "healer"  # arbitrary variable to make below work.
+role = "dps"  # arbitrary variable to make below work.
 metric = "hps" if re.search("heal", role) else "dps"
 
 
